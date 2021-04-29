@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Views.ApartmentDetails.Fragments.DetailsFragment">
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ImageView
+            android:id="@+id/detailsimgID"
+            android:layout_width="wrap_content"
+            android:layout_height="200dp"
+            android:scaleType="fitXY"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.027"
+            tools:src="@tools:sample/backgrounds/scenic" />
+
+        <TextView
+            android:id="@+id/textView3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Details"
+            android:textColor="#0E28BA"
+            android:textSize="36sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.053"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/detailsimgID"
+            app:layout_constraintVertical_bias="0.041" />
+
+        <TextView
+            android:id="@+id/detailstextID"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="shfosdhf oi s   ddg dfgdfghdghdfghdfgohegohegi er ger ger ge eg er e ge ge ge g ergi erhg ergher geirg erhg erg erg erg ergeor goer g erg er ghergdfgkjsdfgh eiurog er gerg euoirgergdfg dfger geriog edrfg 8erg er88gergrg rger ge rgheroiger g8er ger ge rg erg er0gher g erg erge rg8ehrg erijasdfgohergbjq erg k;sdjfbv sdfu9vqer[ e r erg hoire ghe r lk jivayyyfaewrfgndfvh98fadhvksdfvbs[ vkajsdbvasfva;sdbvqweugfqwjkvwwgf sd qw  ew 8     fijpksdhfsuifsdfuwe 9wer f9 werf sa8d fws fhqiuwsf sef[ hwe9f e9whgfewu wdfhg 9esdfiuewfbskvhn dfoig dsoighe goe goi ogi iog eoig ohshsoihfsodfhigsodfirghsodghdfkjvsdovfuiwdfkgsdfv "
+            android:textColor="#090909"
+            android:textSize="24sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView3"
+            app:layout_constraintVertical_bias="0.0" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</FrameLayout>
