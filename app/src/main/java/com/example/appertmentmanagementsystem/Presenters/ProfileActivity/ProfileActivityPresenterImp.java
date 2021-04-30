@@ -18,14 +18,14 @@ public class ProfileActivityPresenterImp implements ProfileActivityPresenter {
     public void getOwnerFlats(int userID) {
         apartmentmodels = new ArrayList<>();
         //get datas
-        Apartmentmodel a = new Apartmentmodel(R.drawable.homea,"3000","3","2","2","1000000");
+        /*Apartmentmodel a = new Apartmentmodel(R.drawable.homea,"3000","3","2","2","1000000");
         Apartmentmodel b = new Apartmentmodel(R.drawable.homeb,"3000","3","2","2","1000000");
         Apartmentmodel c = new Apartmentmodel(R.drawable.homec,"3000","3","2","2","1000000");
         Apartmentmodel d = new Apartmentmodel(R.drawable.homed,"3000","3","2","2","1000000");
 
         apartmentmodels.add(a);
         apartmentmodels.add(b);
-        apartmentmodels.add(c);
+        apartmentmodels.add(c);*/
 
         profileView.showOwnerFlats(apartmentmodels);
 

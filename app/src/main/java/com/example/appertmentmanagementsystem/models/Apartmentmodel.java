@@ -1,24 +1,40 @@
 package com.example.appertmentmanagementsystem.models;
 
+import com.google.gson.annotations.SerializedName;
+
 public class Apartmentmodel {
-    int img;
+    @SerializedName("img")
+    String img;
+    @SerializedName("owner_id")
+    int owner_id;
+    @SerializedName("flat_number")
     String flat_number;
+    @SerializedName("building_name")
     String building_name;
-    String building_numb;
+    @SerializedName("building_number")
+    String building_number;
+    @SerializedName("building_address")
     String building_address;
+    @SerializedName("flat_size")
     String flat_size;
+    @SerializedName("num_of_beds")
     String num_of_beds;
+    @SerializedName("num_of_toilet")
     String num_of_toilet;
+    @SerializedName("price")
     String price ;
+    @SerializedName("num_of_balcony")
     String num_of_balcony;
+    @SerializedName("map_address")
     String map_address ;
+    @SerializedName("location")
     String location ;
 
 
-    public Apartmentmodel(int img, String flat_number, String building_name, String building_numb, String building_address, String flat_size, String num_of_beds, String num_of_toilet, String num_of_balcony, String map_address, String location) {
+    public Apartmentmodel(String img, String flat_number, String building_name, String building_numb, String building_address, String flat_size, String num_of_beds, String num_of_toilet, String num_of_balcony, String map_address, String location,String price,int owner_id) {
         this.flat_number = flat_number;
         this.building_name = building_name;
-        this.building_numb = building_numb;
+        this.building_number = building_numb;
         this.building_address = building_address;
         this.flat_size = flat_size;
         this.num_of_beds = num_of_beds;
@@ -27,12 +43,14 @@ public class Apartmentmodel {
         this.map_address = map_address;
         this.location = location;
         this.img = img;
+        this.price = price;
+        this.owner_id = owner_id;
     }
 
     public Apartmentmodel() {
     }
 
-    public Apartmentmodel(int img, String flat_size, String num_of_beds, String num_of_toilet, String num_of_balcony, String price) {
+    public Apartmentmodel(String img, String flat_size, String num_of_beds, String num_of_toilet, String num_of_balcony, String price) {
         this.flat_size = flat_size;
         this.num_of_beds = num_of_beds;
         this.num_of_toilet = num_of_toilet;
@@ -42,11 +60,11 @@ public class Apartmentmodel {
 
     }
 
-    public int getImg() {
+    public String getImg() {
         return img;
     }
 
-    public void setImg(int img) {
+    public void setImg(String img) {
         this.img = img;
     }
 
@@ -67,11 +85,11 @@ public class Apartmentmodel {
     }
 
     public String getBuilding_numb() {
-        return building_numb;
+        return building_number;
     }
 
     public void setBuilding_numb(String building_numb) {
-        this.building_numb = building_numb;
+        this.building_number = building_numb;
     }
 
     public String getBuilding_address() {

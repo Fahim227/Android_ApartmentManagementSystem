@@ -2,6 +2,7 @@ package com.example.appertmentmanagementsystem.Views.Report;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Context;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -25,14 +26,12 @@ public class Report extends AppCompatActivity implements ReportView, View.OnClic
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_report);
 
-        userid = findViewById(R.id.flatnumID);
-        title = findViewById(R.id.building_num_ID);
-        homeaddress = findViewById(R.id.location_ID);
-        policestations = findViewById(R.id.map_address_ID);
-        description = findViewById(R.id.flat_size_ID);
-        submit = findViewById(R.id.submitID);
-
-        model = new ReportModel(userid.getText().toString(),title.getText().toString(),description.getText().toString(),homeaddress.getText().toString(),policestations.getText().toString());
+        userid = findViewById(R.id.reportuserid);
+        title = findViewById(R.id.reporttitleid);
+        homeaddress = findViewById(R.id.reportlocationid);
+        policestations = findViewById(R.id.reportpolicestationid);
+        description = findViewById(R.id.reportdescriptionid);
+        submit = findViewById(R.id.reportsubmitid);
         submit.setOnClickListener(this);
 
 
@@ -48,7 +47,9 @@ public class Report extends AppCompatActivity implements ReportView, View.OnClic
 
     @Override
     public void onClick(View v) {
-        if(v.getId()==R.id.submitID){
+        if(v.getId()==R.id.reportsubmitid){
+            model = new ReportModel(userid.getText().toString(),title.getText().toString(),description.getText().toString(),homeaddress.getText().toString(),policestations.getText().toString());
+            Toast.makeText(getApplicationContext(), model.getDescription(),Toast.LENGTH_SHORT).show();
             presenter = new ReportPresenterImp(this);
             presenter.sendReport(model);
         }

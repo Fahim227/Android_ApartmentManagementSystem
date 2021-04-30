@@ -38,7 +38,7 @@ public class CategoryAdapter extends RecyclerView.Adapter<CategoryAdapter.ViewHo
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
 
-        holder.textView.setText(paybillmodels.get(position).getName());
+        /*holder.textView.setText(paybillmodels.get(position).getName());
         holder.imageView.setImageResource(paybillmodels.get(position).getImg());
         holder.setOnCategoryClickListener(new onCategoryClickListener() {
             @Override
@@ -47,7 +47,7 @@ public class CategoryAdapter extends RecyclerView.Adapter<CategoryAdapter.ViewHo
 
 
             }
-        });
+        });*/
 
 
     }

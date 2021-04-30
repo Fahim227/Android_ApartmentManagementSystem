@@ -18,7 +18,7 @@ public class ApartmentDetailsPresenterImp implements ApartmentDetailsPresenter{
         Log.d("Wrking","presenter");
         //get data from retrofit
 
-        Apartmentmodel a = new Apartmentmodel(R.drawable.homea,"3000","3","2","2","1000000");
+        Apartmentmodel a = new Apartmentmodel("R.drawable.homea","3000","3","2","2","1000000");
         view.showApartmentData(a);
 
 

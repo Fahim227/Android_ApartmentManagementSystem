@@ -9,7 +9,7 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Toast;
 
-import com.example.appertmentmanagementsystem.Presenters.AddFlatsActivityPresenter.AddFlatsActivityPresenterImp;
+import com.example.appertmentmanagementsystem.Presenters.AddFlatsActivity.AddFlatsActivityPresenterImp;
 import com.example.appertmentmanagementsystem.R;
 import com.example.appertmentmanagementsystem.Views.AddFlat.AddFlattView;
 import com.example.appertmentmanagementsystem.models.Apartmentmodel;
@@ -59,7 +59,7 @@ public class AddFlatsActivity extends AppCompatActivity implements AddFlattView,
         else if(v.getId() == R.id.post_ID){
             //post data...
             addFlatsActivityPresenterImp = new AddFlatsActivityPresenterImp(this);
-            Apartmentmodel model = new Apartmentmodel(R.drawable.homea,flat_num.getText().toString(),"asdjhd",building_num.getText().toString(),"fdsfsdf",flat_size.getText().toString(),bed_num.getText().toString(),toilet_num.getText().toString(),belcony_num.getText().toString(),map_address.getText().toString(),location.getText().toString());
+            Apartmentmodel model = new Apartmentmodel("Null",flat_num.getText().toString(),"asdjhd",building_num.getText().toString(),"fdsfsdf",flat_size.getText().toString(),bed_num.getText().toString(),toilet_num.getText().toString(),belcony_num.getText().toString(),map_address.getText().toString(),location.getText().toString(),price.getText().toString(),1);
 
             addFlatsActivityPresenterImp.addFlat(model);
 

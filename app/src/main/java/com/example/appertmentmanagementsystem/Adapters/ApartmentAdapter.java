@@ -47,7 +47,7 @@ public class ApartmentAdapter extends RecyclerView.Adapter<ApartmentAdapter.View
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
 
-        holder.img.setImageResource(apartmentlist.get(position).getImg());
+        //holder.img.setImageResource(apartmentlist.get(position).getImg());
         holder.bed.setText(apartmentlist.get(position).getNum_of_beds());
         holder.toilet.setText(apartmentlist.get(position).getNum_of_toilet());
         holder.size.setText(apartmentlist.get(position).getFlat_size());

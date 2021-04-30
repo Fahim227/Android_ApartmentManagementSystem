@@ -8,7 +8,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 
-import com.example.appertmentmanagementsystem.Presenters.AvailableApartmentPresenterImp;
+import com.example.appertmentmanagementsystem.Presenters.AvailableApartments.AvailableApartmentPresenterImp;
 import com.example.appertmentmanagementsystem.Views.ApartmentDetails.ApartmentDetails;
 import com.example.appertmentmanagementsystem.Adapters.ApartmentAdapter;
 import com.example.appertmentmanagementsystem.R;
@@ -55,9 +55,9 @@ public class AvailableApartments extends AppCompatActivity implements AvailableA
                         +apartmentmodelList.get(position).getFlat_number()+"\n"
                         +apartmentmodelList.get(position).getFlat_size()+"\n"
                         +apartmentmodelList.get(position).getPrice();
-                int img = apartmentmodelList.get(position).getImg();
+                //int img = apartmentmodelList.get(position).getImg();
                 intent.putExtra("details",details);
-                intent.putExtra("img",img);
+                //intent.putExtra("img",img);
                 startActivity(intent);
             }
 

@@ -1,4 +1,4 @@
-package com.example.appertmentmanagementsystem.Presenters.PayBillActivityPresenter;
+package com.example.appertmentmanagementsystem.Presenters.PayBillActivity;
 
 import com.example.appertmentmanagementsystem.models.Paybillmodel;
 
