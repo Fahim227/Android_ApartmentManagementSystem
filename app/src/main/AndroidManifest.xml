@@ -23,15 +23,15 @@
         <activity android:name=".Views.Report.Report" />
         <activity android:name=".Views.ApartmentDetails.ApartmentDetails" />
         <activity android:name=".Views.AvailableApartments.AvailableApartments" >
+
+        </activity>
+        <activity android:name=".Views.PayBill.PayBillActivity" />
+        <activity android:name=".Activities.UserActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-        </activity>
-        <activity android:name=".Views.PayBill.PayBillActivity" />
-        <activity android:name=".Activities.UserActivity">
-
         </activity>
         <activity android:name=".Activities.OwnerActivity" />
         <activity android:name=".Activities.MainActivity" />

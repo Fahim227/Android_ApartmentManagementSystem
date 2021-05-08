@@ -13,6 +13,7 @@ import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
 import android.widget.Toast;
 
+import com.example.appertmentmanagementsystem.API.APIClient;
 import com.example.appertmentmanagementsystem.Presenters.AvailableApartments.AvailableApartmentPresenterImp;
 import com.example.appertmentmanagementsystem.Views.ApartmentDetails.ApartmentDetails;
 import com.example.appertmentmanagementsystem.Adapters.ApartmentAdapter;
@@ -85,6 +86,7 @@ public class AvailableApartments extends AppCompatActivity implements AvailableA
                         +apartmentmodelList.get(position).getPrice();
                 //int img = apartmentmodelList.get(position).getImg();
                 intent.putExtra("details",details);
+                intent.putExtra("imgurl", APIClient.ipUrl+apartmentmodelList.get(position).getImg());
                 //intent.putExtra("img",img);
                 startActivity(intent);
             }

@@ -21,7 +21,7 @@ public class ApartmentDetails extends AppCompatActivity implements ApartmentDeta
 
     ApartmentDetailsPresenterImp presenter;
     private BottomNavigationView bottomNavigationViewo;
-    public static String dstr;
+    public static String dstr, imgurl;
     public static int img;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,7 +31,8 @@ public class ApartmentDetails extends AppCompatActivity implements ApartmentDeta
         bottomNavigationViewo = findViewById(R.id.bottomnavigationbarID);
         bottomNavigationViewo.setOnNavigationItemSelectedListener(this);
         dstr = getIntent().getStringExtra("details");
-        img = getIntent().getIntExtra("img",R.drawable.size);
+        imgurl = getIntent().getStringExtra("imgurl");
+
         getSupportFragmentManager().beginTransaction().add(R.id.containerID,new DetailsFragment()).commit();
         presenter = new ApartmentDetailsPresenterImp(this);
         presenter.getApartmentDetails(1);

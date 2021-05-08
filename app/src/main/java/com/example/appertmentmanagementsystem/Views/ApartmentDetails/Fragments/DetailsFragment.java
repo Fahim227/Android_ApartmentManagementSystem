@@ -11,6 +11,8 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.bumptech.glide.Glide;
+import com.example.appertmentmanagementsystem.API.APIClient;
 import com.example.appertmentmanagementsystem.Views.ApartmentDetails.ApartmentDetails;
 import com.example.appertmentmanagementsystem.R;
 
@@ -27,7 +29,7 @@ public class DetailsFragment extends Fragment {
         img = v.findViewById(R.id.detailsimgID);
         details = v.findViewById(R.id.detailstextID);
         details.setText(ApartmentDetails.dstr);
-        img.setImageResource(ApartmentDetails.img);
+        Glide.with(getContext()).load(ApartmentDetails.imgurl).into(img);
 
         return v;
     }
