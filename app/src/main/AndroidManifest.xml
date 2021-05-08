@@ -5,6 +5,8 @@
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
 
 
 
@@ -20,14 +22,16 @@
         <activity android:name=".Views.Profile.ProfileActivity" />
         <activity android:name=".Views.Report.Report" />
         <activity android:name=".Views.ApartmentDetails.ApartmentDetails" />
-        <activity android:name=".Views.AvailableApartments.AvailableApartments" />
-        <activity android:name=".Views.PayBill.PayBillActivity" />
-        <activity android:name=".Activities.UserActivity">
+        <activity android:name=".Views.AvailableApartments.AvailableApartments" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+        </activity>
+        <activity android:name=".Views.PayBill.PayBillActivity" />
+        <activity android:name=".Activities.UserActivity">
+
         </activity>
         <activity android:name=".Activities.OwnerActivity" />
         <activity android:name=".Activities.MainActivity" />

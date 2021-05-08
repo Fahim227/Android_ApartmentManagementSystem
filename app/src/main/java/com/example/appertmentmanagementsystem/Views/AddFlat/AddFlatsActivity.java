@@ -1,8 +1,16 @@
 package com.example.appertmentmanagementsystem.Views.AddFlat;
 
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
+import android.database.Cursor;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.net.Uri;
 import android.os.Bundle;
+import android.provider.MediaStore;
+import android.util.Base64;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -15,16 +23,23 @@ import com.example.appertmentmanagementsystem.Views.AddFlat.AddFlattView;
 import com.example.appertmentmanagementsystem.models.Apartmentmodel;
 import com.example.appertmentmanagementsystem.models.Response;
 
+import java.io.ByteArrayOutputStream;
+import java.io.IOException;
+
 public class AddFlatsActivity extends AppCompatActivity implements AddFlattView, View.OnClickListener {
 
     AddFlatsActivityPresenterImp addFlatsActivityPresenterImp;
     private EditText flat_num,building_num,location,map_address,flat_size,bed_num,toilet_num,belcony_num,price;
     private ImageView img;
     private Button addimg,post;
+    private static int PICK_PHOTO = 1;
+    private String filePath;
+    private String imageString;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_flats);
+
         flat_num = findViewById(R.id.flatnumID);
         building_num = findViewById(R.id.building_num_ID);
         location = findViewById(R.id.location_ID);
@@ -54,15 +69,57 @@ public class AddFlatsActivity extends AppCompatActivity implements AddFlattView,
     public void onClick(View v) {
         if(v.getId() == R.id.add__img_ID){
             //add imgs;
+            Intent intent = new Intent(Intent.ACTION_PICK,
+                    MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
+            intent.setType("image/*");
+            startActivityForResult(Intent.createChooser(intent,"Select image"),PICK_PHOTO);
 
         }
         else if(v.getId() == R.id.post_ID){
             //post data...
             addFlatsActivityPresenterImp = new AddFlatsActivityPresenterImp(this);
-            Apartmentmodel model = new Apartmentmodel("Null",flat_num.getText().toString(),"asdjhd",building_num.getText().toString(),"fdsfsdf",flat_size.getText().toString(),bed_num.getText().toString(),toilet_num.getText().toString(),belcony_num.getText().toString(),map_address.getText().toString(),location.getText().toString(),price.getText().toString(),1);
+            Apartmentmodel model = new Apartmentmodel(imageString,flat_num.getText().toString(),"asdjhd",building_num.getText().toString(),"fdsfsdf",flat_size.getText().toString(),bed_num.getText().toString(),toilet_num.getText().toString(),belcony_num.getText().toString(),map_address.getText().toString(),location.getText().toString(),price.getText().toString(),1);
 
-            addFlatsActivityPresenterImp.addFlat(model);
+            addFlatsActivityPresenterImp.addFlat(imageString, model);
 
         }
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if(resultCode == RESULT_OK && requestCode == PICK_PHOTO){
+            Uri imgUri = data.getData();
+            //Toast.makeText(getApplicationContext(),String.valueOf(imgUri),Toast.LENGTH_SHORT).show();
+            filePath = getPath(imgUri);
+            img.setImageURI(imgUri);
+            Bitmap bitmap = null;
+            try {
+                //Initialize Bitmap
+                bitmap = MediaStore.Images.Media.getBitmap(getContentResolver(),imgUri);
+                // Initialize byte stream
+                ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
+                // Compress bitmap
+                bitmap.compress(Bitmap.CompressFormat.JPEG,100,byteArrayOutputStream);
+                // Intialize Byte Array
+                byte[] imageBytes = byteArrayOutputStream.toByteArray();
+                // Get Base64
+                imageString = Base64.encodeToString(imageBytes,Base64.DEFAULT);
+                System.out.println("BASE64: "+imageString);
+
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+        else {
+            Toast.makeText(getApplicationContext(),String.valueOf(requestCode),Toast.LENGTH_SHORT).show();
+        }
+    }
+    private String getPath(Uri uri){
+        String[] projection = { MediaStore.Images.Media.DATA };
+        Cursor cursor = managedQuery(uri,projection,null,null,null);
+        int column_index = cursor.getColumnIndexOrThrow(MediaStore.Images.Media.DATA);
+        cursor.moveToFirst();
+        return cursor.getString(column_index);
     }
 }

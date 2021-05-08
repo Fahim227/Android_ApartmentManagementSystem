@@ -4,10 +4,8 @@ import android.content.Context;
 import android.widget.Toast;
 
 import com.example.appertmentmanagementsystem.API.APIClient;
-import com.example.appertmentmanagementsystem.R;
 import com.example.appertmentmanagementsystem.Views.AvailableApartments.AvailableApartmentView;
 import com.example.appertmentmanagementsystem.models.Apartmentmodel;
-import com.example.appertmentmanagementsystem.Presenters.AvailableApartmentPresenter;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -43,7 +41,7 @@ public class AvailableApartmentPresenterImp implements AvailableApartmentPresent
             @Override
             public void onResponse(Call<List<Apartmentmodel>> call, Response<List<Apartmentmodel>> response) {
                 if(response.isSuccessful() && response.body() != null){
-                    availableApartmentView.giveFlats(response.body());
+                    availableApartmentView.setFlats(response.body());
 
                 }
                 else {
@@ -58,6 +56,29 @@ public class AvailableApartmentPresenterImp implements AvailableApartmentPresent
             }
         });
         // availableApartmentView.giveFlats(apartmentmodelList);
+
+    }
+
+    @Override
+    public void getFlatsByLocation(String location) {
+        Call<List<Apartmentmodel>> call = APIClient.getInstance().getApi().getFlatsByLocation(location);
+        call.enqueue(new Callback<List<Apartmentmodel>>() {
+            @Override
+            public void onResponse(Call<List<Apartmentmodel>> call, Response<List<Apartmentmodel>> response) {
+                if(response.isSuccessful() && response.body() != null){
+                    availableApartmentView.setFlats(response.body());
+
+                }
+                else {
+                    Toast.makeText((Context) availableApartmentView,response.message(),Toast.LENGTH_LONG).show();
+                }
+            }
+
+            @Override
+            public void onFailure(Call<List<Apartmentmodel>> call, Throwable t) {
+
+            }
+        });
 
     }
 }

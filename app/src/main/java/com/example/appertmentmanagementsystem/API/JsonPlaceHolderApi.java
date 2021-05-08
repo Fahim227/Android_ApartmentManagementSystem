@@ -7,14 +7,25 @@ import com.example.appertmentmanagementsystem.models.Response;
 
 import java.util.List;
 
+import okhttp3.MultipartBody;
 import retrofit2.Call;
 import retrofit2.http.Body;
 import retrofit2.http.Field;
 import retrofit2.http.FormUrlEncoded;
+import retrofit2.http.GET;
+import retrofit2.http.Multipart;
 import retrofit2.http.POST;
+import retrofit2.http.Part;
 
 public interface JsonPlaceHolderApi {
 
+
+    @POST("insertApartment/")
+    Call<Response> postApartmentwithimg(@Body Apartmentmodel model);
+
+    @FormUrlEncoded
+    @POST("trial/")
+    Call<Response> trial(@Field("img") String img);
 
     //@FormUrlEncoded
     @POST("insertApartment/")
@@ -35,13 +46,21 @@ public interface JsonPlaceHolderApi {
     @POST("insertReport/")
     Call<Response> postReport(@Body ReportModel model);
 
-    @FormUrlEncoded
-    @POST
+    
+    @GET("getAllFlats/")
     Call<List<Apartmentmodel>> getAllAvailableApartments();
+
+    @FormUrlEncoded
+    @POST("getAllFlats/")
+    Call<List<Apartmentmodel>> getFlatsByLocation(@Field("location") String location);
 
 
     @POST("insertBill/")
     Call<Response> paybill(@Body Paybillmodel model);
+
+    @FormUrlEncoded
+    @POST("getOwnerFlats/")
+    Call<List<Apartmentmodel>> getOwnedFlats(@Field("id") int id);
 
 
 }

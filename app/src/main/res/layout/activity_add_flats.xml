@@ -126,18 +126,19 @@
                 app:layout_constraintVertical_bias="0.0" />
 
             <EditText
-                android:background="@drawable/input_background2"
-                android:padding="10dp"
                 android:id="@+id/bed_num_ID"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="20dp"
+                android:background="@drawable/input_background2"
                 android:ems="10"
                 android:hint="Number Of BedRooms"
                 android:inputType="textPersonName"
+                android:padding="10dp"
                 android:textColorHint="#490101"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.502"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/flat_size_ID"
                 app:layout_constraintVertical_bias="0.0" />
@@ -219,7 +220,7 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/add__img_ID"
                 app:layout_constraintVertical_bias="0.0"
-                tools:srcCompat="@tools:sample/backgrounds/scenic" />
+                />
 
             <Button
                 android:id="@+id/post_ID"

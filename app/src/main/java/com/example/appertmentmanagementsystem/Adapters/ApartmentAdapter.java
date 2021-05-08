@@ -12,6 +12,8 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.bumptech.glide.Glide;
+import com.example.appertmentmanagementsystem.API.APIClient;
 import com.example.appertmentmanagementsystem.R;
 import com.example.appertmentmanagementsystem.models.Apartmentmodel;
 
@@ -47,7 +49,7 @@ public class ApartmentAdapter extends RecyclerView.Adapter<ApartmentAdapter.View
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
 
-        //holder.img.setImageResource(apartmentlist.get(position).getImg());
+        Glide.with(context).load(APIClient.ipUrl +apartmentlist.get(position).getImg()).into(holder.img);
         holder.bed.setText(apartmentlist.get(position).getNum_of_beds());
         holder.toilet.setText(apartmentlist.get(position).getNum_of_toilet());
         holder.size.setText(apartmentlist.get(position).getFlat_size());

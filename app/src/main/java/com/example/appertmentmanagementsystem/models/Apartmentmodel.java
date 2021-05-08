@@ -2,17 +2,21 @@ package com.example.appertmentmanagementsystem.models;
 
 import com.google.gson.annotations.SerializedName;
 
+import okhttp3.MultipartBody;
+
 public class Apartmentmodel {
     @SerializedName("img")
     String img;
+
+    MultipartBody.Part image;
     @SerializedName("owner_id")
     int owner_id;
     @SerializedName("flat_number")
     String flat_number;
     @SerializedName("building_name")
     String building_name;
-    @SerializedName("building_number")
-    String building_number;
+    @SerializedName("building_numb")
+    String building_numb;
     @SerializedName("building_address")
     String building_address;
     @SerializedName("flat_size")
@@ -34,7 +38,7 @@ public class Apartmentmodel {
     public Apartmentmodel(String img, String flat_number, String building_name, String building_numb, String building_address, String flat_size, String num_of_beds, String num_of_toilet, String num_of_balcony, String map_address, String location,String price,int owner_id) {
         this.flat_number = flat_number;
         this.building_name = building_name;
-        this.building_number = building_numb;
+        this.building_numb = building_numb;
         this.building_address = building_address;
         this.flat_size = flat_size;
         this.num_of_beds = num_of_beds;
@@ -45,6 +49,14 @@ public class Apartmentmodel {
         this.img = img;
         this.price = price;
         this.owner_id = owner_id;
+    }
+
+    public MultipartBody.Part getImage() {
+        return image;
+    }
+
+    public void setImage(MultipartBody.Part image) {
+        this.image = image;
     }
 
     public Apartmentmodel() {
@@ -85,11 +97,11 @@ public class Apartmentmodel {
     }
 
     public String getBuilding_numb() {
-        return building_number;
+        return building_numb;
     }
 
     public void setBuilding_numb(String building_numb) {
-        this.building_number = building_numb;
+        this.building_numb = building_numb;
     }
 
     public String getBuilding_address() {

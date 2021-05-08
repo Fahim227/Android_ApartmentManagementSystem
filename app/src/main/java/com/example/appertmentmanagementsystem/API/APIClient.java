@@ -9,7 +9,8 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
 public class APIClient {
 
-    private static String BaseUrl = "http://192.168.0.105:8000/db/";
+    public static  String ipUrl = "http://192.168.0.106:8000";
+    private static String BaseUrl = "http://192.168.0.106:8000/db/";
     private static APIClient mInstance;
 
     private static Retrofit retrofit;

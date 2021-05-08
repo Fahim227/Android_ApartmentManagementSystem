@@ -7,6 +7,11 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
+import android.widget.AutoCompleteTextView;
+import android.widget.Toast;
 
 import com.example.appertmentmanagementsystem.Presenters.AvailableApartments.AvailableApartmentPresenterImp;
 import com.example.appertmentmanagementsystem.Views.ApartmentDetails.ApartmentDetails;
@@ -15,6 +20,7 @@ import com.example.appertmentmanagementsystem.R;
 import com.example.appertmentmanagementsystem.Views.AvailableApartments.AvailableApartmentView;
 import com.example.appertmentmanagementsystem.models.Apartmentmodel;
 
+import java.math.RoundingMode;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -23,25 +29,47 @@ public class AvailableApartments extends AppCompatActivity implements AvailableA
     private List<Apartmentmodel> apartmentmodelList;
     private RecyclerView apartmentcontainer;
     private ApartmentAdapter apartmentAdapter;
+    private ArrayAdapter locationsarrayAdapter;
+    private AutoCompleteTextView autoCompleteTextView;
+    private
     AvailableApartmentPresenterImp presenter;
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        String[] listOfLocations = getResources().getStringArray(R.array.dropdownText);
+        locationsarrayAdapter = new ArrayAdapter(getApplicationContext(),R.layout.dropdown_text, listOfLocations);
+        autoCompleteTextView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                Toast.makeText(getApplicationContext(),listOfLocations[position],Toast.LENGTH_LONG).show();
+                presenter.getFlatsByLocation(listOfLocations[position]);
+            }
+        });
+        autoCompleteTextView.setAdapter(locationsarrayAdapter);
+    }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_available_apartments);
 
         apartmentcontainer = findViewById(R.id.apartmentcontainerID);
+        autoCompleteTextView = findViewById(R.id.autoCompleteTextView);
 
         presenter = new AvailableApartmentPresenterImp(this);
         presenter.getAvailableFlats();
 
+
     }
 
     @Override
-    public void giveFlats(List<Apartmentmodel> apartmentmodelList) {
+    public void setFlats(List<Apartmentmodel> apartmentmodelList) {
         Log.d("Not Working","1");
         apartmentAdapter = new ApartmentAdapter(getApplicationContext(),apartmentmodelList);
         Log.d("Not Working","2");
         apartmentcontainer.setAdapter(apartmentAdapter);
+        apartmentAdapter.notifyDataSetChanged();
         apartmentcontainer.setLayoutManager(new LinearLayoutManager(this));
         Log.d("Not Working","3");
         apartmentAdapter.setOnItemClickListener(new ApartmentAdapter.OnItemClickListener() {

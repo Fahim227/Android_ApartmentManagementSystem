@@ -5,5 +5,5 @@ import com.example.appertmentmanagementsystem.models.Apartmentmodel;
 import java.util.List;
 
 public interface AvailableApartmentView {
-    void giveFlats(List<Apartmentmodel> apartmentmodelList);
+    void setFlats(List<Apartmentmodel> apartmentmodelList);
 }

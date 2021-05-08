@@ -3,4 +3,10 @@
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_details_fragment">Hello Details fragment</string>
     <string name="hello_book_fragment">Hello Book fragment</string>
+    
+    <string-array name="dropdownText">
+        <item>Dhanmondi</item>
+        <item>Zigatola</item>
+        <item>Hazaribagh</item>
+    </string-array>
 </resources>
