@@ -4,6 +4,7 @@ import com.example.appertmentmanagementsystem.models.Apartmentmodel;
 import com.example.appertmentmanagementsystem.models.Paybillmodel;
 import com.example.appertmentmanagementsystem.models.ReportModel;
 import com.example.appertmentmanagementsystem.models.Response;
+import com.example.appertmentmanagementsystem.models.UserModel;
 
 import java.util.List;
 
@@ -45,6 +46,12 @@ public interface JsonPlaceHolderApi {
     //@FormUrlEncoded
     @POST("insertReport/")
     Call<Response> postReport(@Body ReportModel model);
+
+    @POST("registerUser/")
+    Call<Response> registerUser(@Body UserModel model);
+
+    @POST("loginUser/")
+    Call<Response> login(@Body UserModel model);
 
     
     @GET("getAllFlats/")

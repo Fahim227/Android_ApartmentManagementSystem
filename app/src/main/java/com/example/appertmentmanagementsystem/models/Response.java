@@ -3,6 +3,15 @@ package com.example.appertmentmanagementsystem.models;
 public class Response {
     boolean response;
     String message;
+    String userid;
+
+    public String getUserid() {
+        return userid;
+    }
+
+    public void setUserid(String userid) {
+        this.userid = userid;
+    }
 
     public Response(boolean response, String message) {
         this.response = response;
