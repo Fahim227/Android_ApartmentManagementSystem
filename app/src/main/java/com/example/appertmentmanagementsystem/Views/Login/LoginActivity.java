@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -11,6 +12,7 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.appertmentmanagementsystem.Activities.UserActivity;
 import com.example.appertmentmanagementsystem.Presenters.LoginActivity.LoginActivityPresenterImp;
 import com.example.appertmentmanagementsystem.R;
 import com.example.appertmentmanagementsystem.Views.Register.MainActivity;
@@ -23,10 +25,17 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
     private Button login;
     private TextView logintext;
     private LoginActivityPresenterImp loginActivityPresenterImp;
+    private SharedPreferences sp;
+
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
+
+        // Checking if user logged in
+        sp = getSharedPreferences("login",MODE_PRIVATE);
 
         email = findViewById(R.id.loginemailID);
         password = findViewById(R.id.loginpasswordID);
@@ -36,6 +45,13 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
 
         login.setOnClickListener(this);
         logintext.setOnClickListener(this);
+        int v = sp.getInt("logg",0);
+        if(v==1){
+            // goToUserActivity();
+            Intent intent = new Intent(LoginActivity.this, UserActivity.class);
+            startActivity(intent);
+        }
+
     }
 
     @Override
@@ -56,6 +72,15 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
 
     @Override
     public void getResponse(Response response) {
-        Toast.makeText(getApplicationContext(),response.getMessage()+" "+response.getUserid(),Toast.LENGTH_LONG).show();
+        if(response.getResponse()){
+            Toast.makeText(getApplicationContext(),response.getMessage()+" "+response.getUserid(),Toast.LENGTH_LONG).show();
+            Intent intent = new Intent(LoginActivity.this, UserActivity.class);
+            sp.edit().putInt("logg",1).apply();
+            sp.edit().putInt("userid",response.getUserid()).apply();
+            startActivity(intent);
+        }
+        else{
+            Toast.makeText(getApplicationContext(),response.getMessage(),Toast.LENGTH_LONG).show();
+        }
     }
 }

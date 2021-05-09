@@ -3,13 +3,13 @@ package com.example.appertmentmanagementsystem.models;
 public class Response {
     boolean response;
     String message;
-    String userid;
+    int userid;
 
-    public String getUserid() {
+    public int getUserid() {
         return userid;
     }
 
-    public void setUserid(String userid) {
+    public void setUserid(int userid) {
         this.userid = userid;
     }
 

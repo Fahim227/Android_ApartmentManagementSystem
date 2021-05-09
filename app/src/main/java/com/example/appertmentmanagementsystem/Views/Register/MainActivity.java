@@ -36,8 +36,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         confirmpassword = findViewById(R.id.registerconfirmpasswordID);
         register = findViewById(R.id.registerbuttonID);
         registerPresenterImp = new RegisterPresenterImp(this);
-        sp = getSharedPreferences("login",MODE_PRIVATE);
-
         register.setOnClickListener(this);
     }
 
@@ -61,8 +59,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         if(response.getResponse()){
             Toast.makeText(getApplicationContext(),response.getMessage()+response.getUserid(),Toast.LENGTH_LONG).show();
             Intent intent = new Intent(MainActivity.this, UserActivity.class);
-            sp.edit().putBoolean("logged",true).apply();
-            sp.edit().putString("userID",response.getUserid()).apply();
+            sp.edit().putInt("logg",1).apply();
+            sp.edit().putInt("userID",response.getUserid()).apply();
             startActivity(intent);
         }
         else{
