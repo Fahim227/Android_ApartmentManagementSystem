@@ -45,10 +45,14 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
 
         login.setOnClickListener(this);
         logintext.setOnClickListener(this);
-        int v = sp.getInt("logg",0);
+        /*sp.edit().remove("logg");
+        int v = sp.getInt("logg",0);*/
+        Intent intent = getIntent();
+        int v = intent.getIntExtra("logg",0);
+        Toast.makeText(this,String.valueOf(v),Toast.LENGTH_LONG).show();
         if(v==1){
             // goToUserActivity();
-            Intent intent = new Intent(LoginActivity.this, UserActivity.class);
+            intent = new Intent(LoginActivity.this, UserActivity.class);
             startActivity(intent);
         }
 
@@ -75,8 +79,10 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         if(response.getResponse()){
             Toast.makeText(getApplicationContext(),response.getMessage()+" "+response.getUserid(),Toast.LENGTH_LONG).show();
             Intent intent = new Intent(LoginActivity.this, UserActivity.class);
-            sp.edit().putInt("logg",1).apply();
-            sp.edit().putInt("userid",response.getUserid()).apply();
+            /*sp.edit().putInt("logg",1).apply();
+            sp.edit().putInt("userId",response.getUserid()).apply();*/
+            intent.putExtra("logg",1);
+            intent.putExtra("userId",response.getUserid());
             startActivity(intent);
         }
         else{

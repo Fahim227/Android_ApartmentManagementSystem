@@ -59,8 +59,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         if(response.getResponse()){
             Toast.makeText(getApplicationContext(),response.getMessage()+response.getUserid(),Toast.LENGTH_LONG).show();
             Intent intent = new Intent(MainActivity.this, UserActivity.class);
-            sp.edit().putInt("logg",1).apply();
-            sp.edit().putInt("userID",response.getUserid()).apply();
+           /* sp.edit().putInt("logg",1).apply();
+            sp.edit().putInt("userId",response.getUserid()).apply();*/
+            intent.putExtra("logg",1);
+            intent.putExtra("userId",response.getUserid());
             startActivity(intent);
         }
         else{

@@ -19,10 +19,13 @@ import com.example.appertmentmanagementsystem.Views.Report.Report;
 public class UserActivity extends AppCompatActivity implements View.OnClickListener {
 
     private CardView availableflat,paybill,report,emergencycontacts;
+    private int userId;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_user);
+
+        userId=getIntent().getIntExtra("userId",0);
 
         availableflat = findViewById(R.id.availableflatID);
         paybill = findViewById(R.id.paybillID);
@@ -47,6 +50,7 @@ public class UserActivity extends AppCompatActivity implements View.OnClickListe
         if(id == R.id.user_profile_ID){
             //Toast.makeText(getApplicationContext(), "Main action is selected!", Toast.LENGTH_SHORT).show();
             Intent intent = new Intent(this, ProfileActivity.class);
+            intent.putExtra("userId",userId);
             startActivity(intent);
             return true;
         }

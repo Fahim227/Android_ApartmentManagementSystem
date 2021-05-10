@@ -35,10 +35,14 @@ public class AddFlatsActivity extends AppCompatActivity implements AddFlattView,
     private static int PICK_PHOTO = 1;
     private String filePath;
     private String imageString;
+    private int userId;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_flats);
+
+        Intent intent = getIntent();
+        userId = intent.getIntExtra("userId",0);
 
         flat_num = findViewById(R.id.flatnumID);
         building_num = findViewById(R.id.building_num_ID);
@@ -78,7 +82,7 @@ public class AddFlatsActivity extends AppCompatActivity implements AddFlattView,
         else if(v.getId() == R.id.post_ID){
             //post data...
             addFlatsActivityPresenterImp = new AddFlatsActivityPresenterImp(this);
-            Apartmentmodel model = new Apartmentmodel(imageString,flat_num.getText().toString(),"asdjhd",building_num.getText().toString(),"fdsfsdf",flat_size.getText().toString(),bed_num.getText().toString(),toilet_num.getText().toString(),belcony_num.getText().toString(),map_address.getText().toString(),location.getText().toString(),price.getText().toString(),1);
+            Apartmentmodel model = new Apartmentmodel(imageString,flat_num.getText().toString(),"asdjhd",building_num.getText().toString(),"fdsfsdf",flat_size.getText().toString(),bed_num.getText().toString(),toilet_num.getText().toString(),belcony_num.getText().toString(),map_address.getText().toString(),location.getText().toString(),price.getText().toString(),userId);
 
             addFlatsActivityPresenterImp.addFlat(imageString, model);
 
