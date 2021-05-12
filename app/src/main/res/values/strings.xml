@@ -3,7 +3,14 @@
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_details_fragment">Hello Details fragment</string>
     <string name="hello_book_fragment">Hello Book fragment</string>
-    
+    <string name="email_error">Enter a Valid Email</string>
+    <string name="password_error">Enter a Valid Password</string>
+    <string name="login_failed">Invalid Login</string>
+    <string name="FirstNameError">Enter a Valid Name</string>
+    <string name="name_erro">Enter a Valid name</string>
+    <string name="phone_error">Enter Atleast 11 Digit</string>
+    <string name="con_password_error">Password didnot matched</string>
+
     <string-array name="dropdownText">
         <item>Dhanmondi</item>
         <item>Zigatola</item>

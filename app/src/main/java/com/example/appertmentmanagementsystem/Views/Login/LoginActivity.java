@@ -15,6 +15,7 @@ import android.widget.Toast;
 import com.example.appertmentmanagementsystem.Activities.UserActivity;
 import com.example.appertmentmanagementsystem.Presenters.LoginActivity.LoginActivityPresenterImp;
 import com.example.appertmentmanagementsystem.R;
+import com.example.appertmentmanagementsystem.Services.LoginService;
 import com.example.appertmentmanagementsystem.Views.Register.MainActivity;
 import com.example.appertmentmanagementsystem.models.Response;
 import com.example.appertmentmanagementsystem.models.UserModel;
@@ -41,7 +42,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         password = findViewById(R.id.loginpasswordID);
         login = findViewById(R.id.loginbuttonID);
         logintext = findViewById(R.id.logintextID);
-        loginActivityPresenterImp = new LoginActivityPresenterImp(this);
+        loginActivityPresenterImp = new LoginActivityPresenterImp(this,new LoginService());
 
         login.setOnClickListener(this);
         logintext.setOnClickListener(this);
@@ -63,8 +64,8 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
 
         if(v.getId() == R.id.loginbuttonID){
             // Check for login
-            UserModel userModel = new UserModel(email.getText().toString(),password.getText().toString());
-            loginActivityPresenterImp.CheckForLogin(userModel);
+
+            loginActivityPresenterImp.CheckForLogin();
 
         }
         else{
@@ -89,4 +90,41 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
             Toast.makeText(getApplicationContext(),response.getMessage(),Toast.LENGTH_LONG).show();
         }
     }
+
+    @Override
+    public String getEmail() {
+        return email.getText().toString();
+    }
+
+    @Override
+    public void showEmailError(int resId) {
+        email.setError(getString(resId));
+
+    }
+
+    @Override
+    public String getPassword() {
+        return password.getText().toString();
+    }
+
+    @Override
+    public void showPasswordError(int resId) {
+        password.setError(getString(resId));
+
+    }
+
+    @Override
+    public void startUserActivity() {
+        Intent intent = new Intent(LoginActivity.this, UserActivity.class);
+        startActivity(intent);
+
+    }
+
+    @Override
+    public void showLoginError(int resId) {
+        Toast.makeText(this, getString(resId), Toast.LENGTH_SHORT).show();
+
+    }
+
+
 }

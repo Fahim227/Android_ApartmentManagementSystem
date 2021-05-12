@@ -42,12 +42,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     @Override
     public void onClick(View v) {
         if(v.getId()==R.id.registerbuttonID){
-            UserModel user = new UserModel(firstName.getText().toString(),
-                    lastName.getText().toString(),
-                    phoneNumber.getText().toString(),
-                    email.getText().toString(),
-                    password.getText().toString());
-            registerPresenterImp.registerUser(user);
+            registerPresenterImp.registerUser();
 
 
 
@@ -68,5 +63,66 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         else{
             Toast.makeText(getApplicationContext(),response.getMessage(),Toast.LENGTH_LONG).show();
         }
+    }
+
+    @Override
+    public String getFirstname() {
+        return firstName.getText().toString();
+    }
+
+    @Override
+    public void showFirstNameError(int resId) {
+        firstName.setError(getString(resId));
+
+    }
+
+    @Override
+    public String getLastName() {
+        return lastName.getText().toString();
+    }
+
+    @Override
+    public void showLastNameError(int resId) {
+        lastName.setError(getString(resId));
+    }
+
+    @Override
+    public String getEmail() {
+        return email.getText().toString();
+    }
+
+    @Override
+    public void showEmailError(int resId) {
+        email.setError(getString(resId));
+    }
+
+    @Override
+    public String getPassword() {
+        return password.getText().toString();
+    }
+
+    @Override
+    public void showPasswordError(int resId) {
+        password.setError(getString(resId));
+    }
+
+    @Override
+    public String getConPassword() {
+        return confirmpassword.getText().toString();
+    }
+
+    @Override
+    public void showConPasswordError(int resId) {
+        confirmpassword.setError(getString(resId));
+    }
+
+    @Override
+    public String getPhoneNumer() {
+        return phoneNumber.getText().toString();
+    }
+
+    @Override
+    public void showPhonNumberError(int resId) {
+        phoneNumber.setError(getString(resId));
     }
 }
