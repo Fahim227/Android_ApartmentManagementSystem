@@ -46,12 +46,62 @@ public class Report extends AppCompatActivity implements ReportView, View.OnClic
     }
 
     @Override
+    public String getUserId() {
+        return userid.getText().toString();
+    }
+
+    @Override
+    public void showUserIDError(int resID) {
+        userid.setError(getString(resID));
+    }
+
+    @Override
+    public String get_title() {
+        return title.getText().toString();
+    }
+
+    @Override
+    public void showTitleError(int resId) {
+        title.setError(getString(resId));
+    }
+
+    @Override
+    public String getHomeAddress() {
+        return homeaddress.getText().toString();
+    }
+
+    @Override
+    public void showHomeAddressError(int resId) {
+        homeaddress.setError(getString(resId));
+    }
+
+    @Override
+    public String getPoliceStation() {
+        return policestations.getText().toString();
+    }
+
+    @Override
+    public void showPoliceStationError(int resId) {
+        policestations.setError(getString(resId));
+    }
+
+    @Override
+    public String getDescription() {
+        return description.getText().toString();
+    }
+
+    @Override
+    public void showDescriptionError(int resId) {
+        description.setError(getString(resId));
+    }
+
+    @Override
     public void onClick(View v) {
         if(v.getId()==R.id.reportsubmitid){
             model = new ReportModel(userid.getText().toString(),title.getText().toString(),description.getText().toString(),homeaddress.getText().toString(),policestations.getText().toString());
             Toast.makeText(getApplicationContext(), model.getDescription(),Toast.LENGTH_SHORT).show();
             presenter = new ReportPresenterImp(this);
-            presenter.sendReport(model);
+            presenter.sendReport();
         }
 
     }

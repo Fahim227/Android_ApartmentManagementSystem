@@ -20,17 +20,19 @@
         android:theme="@style/Theme.AppertmentManagementSystem">
         <activity android:name=".Views.AddFlat.AddFlatsActivity"></activity>
         <activity android:name=".Views.Profile.ProfileActivity" />
-        <activity android:name=".Views.Report.Report" />
-        <activity android:name=".Views.ApartmentDetails.ApartmentDetails" />
-        <activity android:name=".Views.AvailableApartments.AvailableApartments" >
-
-        </activity>
-        <activity android:name=".Views.PayBill.PayBillActivity" >
+        <activity android:name=".Views.Report.Report" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+        </activity>
+        <activity android:name=".Views.ApartmentDetails.ApartmentDetails" />
+        <activity android:name=".Views.AvailableApartments.AvailableApartments" >
+
+        </activity>
+        <activity android:name=".Views.PayBill.PayBillActivity" >
+
         </activity>
         <activity android:name=".Activities.UserActivity">
 
