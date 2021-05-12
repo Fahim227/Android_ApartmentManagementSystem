@@ -87,10 +87,61 @@ public class PayBillActivity extends AppCompatActivity implements PayBillActivit
     }
 
     @Override
+    public String getUserID() {
+        return userid.getText().toString();
+    }
+
+    @Override
+    public void showUserIdError(int resID) {
+        userid.setError(getString(resID));
+
+    }
+
+    @Override
+    public String getBillType() {
+        return billtype.getText().toString();
+    }
+
+    @Override
+    public void showBillTypeError(int resId) {
+        billtype.setError(getString(resId));
+    }
+
+    @Override
+    public String getBillNumber() {
+        return billnumber.getText().toString();
+    }
+
+    @Override
+    public void showBillNumberError(int resId) {
+        billnumber.setError(getString(resId));
+    }
+
+    @Override
+    public String getBillAmount() {
+        return amount.getText().toString();
+    }
+
+    @Override
+    public void showBillAmountError(int resId) {
+        amount.setError(getString(resId));
+    }
+
+    @Override
+    public String getMonth() {
+        return month.getText().toString();
+    }
+
+    @Override
+    public void showMonthError(int resId) {
+        month.setError(getString(resId));
+    }
+
+    @Override
     public void onClick(View v) {
         if(v.getId() == R.id.pay_ButtonID){
-            Paybillmodel model = new Paybillmodel(userid.getText().toString(),billtype.getText().toString(),billnumber.getText().toString(),amount.getText().toString(),month.getText().toString());
-            payBillPresenterImp.sendBill(model);
+            //Paybillmodel model = new Paybillmodel(userid.getText().toString(),billtype.getText().toString(),billnumber.getText().toString(),amount.getText().toString(),month.getText().toString());
+            payBillPresenterImp.sendBill();
         }
 
     }

@@ -25,16 +25,18 @@
         <activity android:name=".Views.AvailableApartments.AvailableApartments" >
 
         </activity>
-        <activity android:name=".Views.PayBill.PayBillActivity" />
-        <activity android:name=".Activities.UserActivity">
-
-        </activity>
-        <activity android:name=".Views.Login.LoginActivity" >
+        <activity android:name=".Views.PayBill.PayBillActivity" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+        </activity>
+        <activity android:name=".Activities.UserActivity">
+
+        </activity>
+        <activity android:name=".Views.Login.LoginActivity" >
+
         </activity>
         <activity android:name=".Views.Register.MainActivity" >
 

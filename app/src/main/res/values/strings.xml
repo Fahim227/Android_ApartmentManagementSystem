@@ -10,6 +10,11 @@
     <string name="name_erro">Enter a Valid name</string>
     <string name="phone_error">Enter Atleast 11 Digit</string>
     <string name="con_password_error">Password didnot matched</string>
+    <string name="userID_error">Enter UserID</string>
+    <string name="billtype_error">Enter Valid Bill Type</string>
+    <string name="billnumber_error">Enter Valid Bill Number</string>
+    <string name="amount_error">Enter Amount</string>
+    <string name="month_error">Enter Bill Month</string>
 
     <string-array name="dropdownText">
         <item>Dhanmondi</item>

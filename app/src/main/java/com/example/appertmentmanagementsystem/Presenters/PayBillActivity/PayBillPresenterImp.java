@@ -4,6 +4,7 @@ import android.content.Context;
 import android.widget.Toast;
 
 import com.example.appertmentmanagementsystem.API.APIClient;
+import com.example.appertmentmanagementsystem.R;
 import com.example.appertmentmanagementsystem.Views.PayBill.PayBillActivityView;
 import com.example.appertmentmanagementsystem.models.Paybillmodel;
 import com.example.appertmentmanagementsystem.models.Response;
@@ -20,8 +21,34 @@ public class PayBillPresenterImp implements PaybillPresenter{
     }
 
     @Override
-    public void sendBill(Paybillmodel paybillmodel) {
+    public void sendBill() {
+        Paybillmodel paybillmodel= null;
         //get model and send to server
+        String userId = payBillActivityView.getUserID();
+        if(userId.isEmpty()){
+            payBillActivityView.showUserIdError(R.string.userID_error);
+            return;
+        }
+        String billtype = payBillActivityView.getBillType();
+        if(billtype.isEmpty()){
+            payBillActivityView.showBillTypeError(R.string.billtype_error);
+            return;
+        }
+        String billNumber = payBillActivityView.getBillNumber();
+        if(billNumber.isEmpty()){
+            payBillActivityView.showBillNumberError(R.string.billnumber_error);
+            return;
+        }
+        String amount = payBillActivityView.getBillAmount();
+        if(amount.isEmpty()){
+            payBillActivityView.showBillAmountError(R.string.amount_error);
+            return;
+        }
+        String month = payBillActivityView.getMonth();
+        if(month.isEmpty()){
+            payBillActivityView.showMonthError(R.string.month_error);
+            return;
+        }
 
         Call<Response> call = APIClient.getInstance().getApi().paybill(paybillmodel);
         call.enqueue(new Callback<Response>() {
