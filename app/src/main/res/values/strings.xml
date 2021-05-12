@@ -20,6 +20,16 @@
     <string name="station_error">Enter PoliceStation</string>
     <string name="description_error">Enter Atleast 200 Charecter</string>
     <string name="des">hhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhcccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccchhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhh</string>
+    <string name="flat_number_error">Enter Flat Number</string>
+    <string name="building_number_error">Enter Building Number</string>
+    <string name="location_error">Enter Location</string>
+    <string name="map_address_error">Enter Map Address</string>
+    <string name="flat_size_error">Enter Flat Size</string>
+    <string name="bed_num_error">Enter Number of Beds</string>
+    <string name="bath_num_error">Enter Number of Bathrooms</string>
+    <string name="belcony_num_error">Enter Number Of Belcony</string>
+    <string name="price_error">Enter Flat Price</string>
+    <string name="img_error">Please Select images</string>
 
     <string-array name="dropdownText">
         <item>Dhanmondi</item>

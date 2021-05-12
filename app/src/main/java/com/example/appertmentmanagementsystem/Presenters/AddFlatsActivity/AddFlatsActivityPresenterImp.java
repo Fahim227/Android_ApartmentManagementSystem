@@ -4,6 +4,8 @@ import android.content.Context;
 import android.widget.Toast;
 
 import com.example.appertmentmanagementsystem.API.APIClient;
+import com.example.appertmentmanagementsystem.R;
+import com.example.appertmentmanagementsystem.Views.AddFlat.AddFlatsActivity;
 import com.example.appertmentmanagementsystem.Views.AddFlat.AddFlattView;
 import com.example.appertmentmanagementsystem.models.Apartmentmodel;
 import com.example.appertmentmanagementsystem.models.Response;
@@ -29,8 +31,7 @@ public class AddFlatsActivityPresenterImp implements AddFlatsActivityPresenter{
     }
 
     @Override
-    public void addFlat(String filePath, Apartmentmodel model) {
-        model.setImg(filePath);
+    public void addFlat() {
         // send data to server
         // fileUpload(filePath,model);
 
@@ -53,6 +54,64 @@ public class AddFlatsActivityPresenterImp implements AddFlatsActivityPresenter{
 
 
         // trial:::::
+        String flat_number = addFlattView.getFlatNumber();
+        if(flat_number.isEmpty()){
+            addFlattView.showFlatNumberError(R.string.flat_number_error);
+            return;
+        }
+        String building_number = addFlattView.getBuildingNumber();
+        if(building_number.isEmpty()){
+            addFlattView.showBuildingNumberError(R.string.building_number_error);
+            return;
+        }
+        String location = addFlattView.getLocation();
+        if(location.isEmpty()){
+            addFlattView.showLocationError(R.string.location_error);
+            return;
+        }
+        String map_address = addFlattView.getMapAddress();
+        if(map_address.isEmpty()){
+            addFlattView.showMapAddressError(R.string.map_address_error);
+            return;
+        }
+        String flat_size = addFlattView.getFlatSize();
+        if(flat_size.isEmpty()){
+            addFlattView.showFlatSizeError(R.string.flat_size_error);
+            return;
+        }
+        String bed_num = addFlattView.getBedNum();
+        if(bed_num.isEmpty()){
+            addFlattView.showBedNumError(R.string.bed_num_error);
+            return;
+        }
+        String bath_num = addFlattView.getBathNum();
+        if(bath_num.isEmpty()){
+            addFlattView.showBathNumError(R.string.bath_num_error);
+            return;
+        }
+        String belcony_num = addFlattView.getBelconyNum();
+        if(belcony_num.isEmpty()){
+            addFlattView.showBelconyNumError(R.string.belcony_num_error);
+            return;
+        }
+        String price = addFlattView.getPrice();
+        if(price.isEmpty()){
+            addFlattView.showPriceError(R.string.price_error);
+            return;
+        }
+
+        String img = addFlattView.getImg();
+        //Toast.makeText((Context) addFlattView,img,Toast.LENGTH_LONG).show();
+        System.out.print("img"+img);
+        /*if(img.equals("")){
+            Toast.makeText((Context) addFlattView,"Working",Toast.LENGTH_LONG).show();
+            addFlattView.showImgError(R.string.img_error);
+            return;
+        }*/
+
+
+
+        Apartmentmodel model = new Apartmentmodel(img,flat_number,"Manjil",building_number,"3/13",flat_size,bed_num,bath_num,belcony_num,map_address,location,price, AddFlatsActivity.userId);
         Call<Response> call = APIClient.getInstance().getApi().postApartment(model);
         call.enqueue(new Callback<Response>() {
             @Override

@@ -18,14 +18,16 @@
         android:supportsRtl="true"
         android:usesCleartextTraffic="true"
         android:theme="@style/Theme.AppertmentManagementSystem">
-        <activity android:name=".Views.AddFlat.AddFlatsActivity"></activity>
-        <activity android:name=".Views.Profile.ProfileActivity" />
-        <activity android:name=".Views.Report.Report" >
+        <activity android:name=".Views.AddFlat.AddFlatsActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+        </activity>
+        <activity android:name=".Views.Profile.ProfileActivity" />
+        <activity android:name=".Views.Report.Report" >
+
         </activity>
         <activity android:name=".Views.ApartmentDetails.ApartmentDetails" />
         <activity android:name=".Views.AvailableApartments.AvailableApartments" >
