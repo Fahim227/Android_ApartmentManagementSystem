@@ -24,7 +24,7 @@
                 android:id="@+id/textView4"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Report Section"
+                android:text="Add Apartment For Rent"
                 android:textColor="#020000"
                 android:textSize="36sp"
                 android:textStyle="bold"

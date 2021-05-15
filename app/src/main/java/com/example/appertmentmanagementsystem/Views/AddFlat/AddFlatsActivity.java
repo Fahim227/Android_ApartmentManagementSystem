@@ -65,7 +65,12 @@ public class AddFlatsActivity extends AppCompatActivity implements AddFlattView,
 
     @Override
     public void getResponse(Response response) {
-        Toast.makeText(getApplicationContext(),response.getMessage(),Toast.LENGTH_SHORT).show();
+        if(response.getResponse()){
+            Toast.makeText(getApplicationContext(),response.getMessage(),Toast.LENGTH_SHORT).show();
+        }
+        else{
+            Toast.makeText(getApplicationContext(),response.getMessage(),Toast.LENGTH_SHORT).show();
+        }
 
     }
 

@@ -109,18 +109,16 @@ public class AddFlatsActivityPresenterImp implements AddFlatsActivityPresenter{
             return;
         }*/
 
-
-
         Apartmentmodel model = new Apartmentmodel(img,flat_number,"Manjil",building_number,"3/13",flat_size,bed_num,bath_num,belcony_num,map_address,location,price, AddFlatsActivity.userId);
         Call<Response> call = APIClient.getInstance().getApi().postApartment(model);
         call.enqueue(new Callback<Response>() {
             @Override
             public void onResponse(Call<Response> call, retrofit2.Response<Response> response) {
-                if (response.body().getResponse()){
-                    Toast.makeText((Context)addFlattView,response.body().getMessage(),Toast.LENGTH_LONG).show();
+                if (response.isSuccessful() && response.body() != null){
+                   addFlattView.getResponse(response.body());
                 }
                 else {
-                    Toast.makeText((Context)addFlattView,response.body().getMessage(),Toast.LENGTH_LONG).show();
+                    Toast.makeText((Context)addFlattView,response.message(),Toast.LENGTH_LONG).show();
                 }
             }
 

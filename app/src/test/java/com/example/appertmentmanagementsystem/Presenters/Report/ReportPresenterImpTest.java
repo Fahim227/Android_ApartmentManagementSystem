@@ -86,18 +86,6 @@ public class ReportPresenterImpTest{
         verify(view).showDescriptionError(R.string.description_error);
     }
 
-    @Test
-    public void TestReport(){
-        when(view.getUserId()).thenReturn("1");
-        when(view.get_title()).thenReturn("report");
-        when(view.getHomeAddress()).thenReturn("Dhanmondi");
-        when(view.getPoliceStation()).thenReturn("Dhanmondi");
-        when(view.getDescription()).thenReturn(String.valueOf(R.string.des));
-        presenter.sendReport();
-
-        Response res = new Response(true,"Saved Successfully");
-        verify(view).getResponse(res);
-    }
 
 
 

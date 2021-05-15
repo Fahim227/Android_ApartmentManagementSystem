@@ -2,7 +2,7 @@ package com.example.appertmentmanagementsystem.Presenters.PayBillActivity;
 
 import com.example.appertmentmanagementsystem.Presenters.RegisterPresenter.RegisterPresenterImp;
 import com.example.appertmentmanagementsystem.R;
-import com.example.appertmentmanagementsystem.Views.PayBill.PayBillActivityView;
+import com.example.appertmeAddFlattViewntmanagementsystem.Views.PayBill.PayBillActivityView;
 import com.example.appertmentmanagementsystem.Views.Register.MainActivityView;
 
 import junit.framework.TestCase;

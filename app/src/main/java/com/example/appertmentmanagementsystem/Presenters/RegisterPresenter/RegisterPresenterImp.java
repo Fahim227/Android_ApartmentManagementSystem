@@ -49,7 +49,7 @@ public class RegisterPresenterImp implements RegisterPresenter{
             return;
         }
         String conpassword = mainActivityView.getConPassword();
-        if(conpassword != password){
+        if(!conpassword.equals(password)){
             mainActivityView.showConPasswordError(R.string.con_password_error);
             return;
         }
